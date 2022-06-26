@@ -5,8 +5,7 @@ import {addTodo,removeTodo} from './service/actions/todoAction'
 
 function App() {
   return (
-    <div className="App">
-      my app      
+    <div className="App">     
       <Todo/>
     </div>
   );
