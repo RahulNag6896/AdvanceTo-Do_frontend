@@ -37,7 +37,7 @@ function Todo() {
                     todos?.map((item, i)=>(
                         <div key={i}>
                             <input type='checkbox' value={item.done} onChange={e=>isChecked(i)}/>
-                            <span className={item.done === true? 'deleted':''}>{item.todo}</span>
+                            <span className={item.done === true? 'deleted':''}>{item.todo}</span><span>+</span>
                         </div>
                     ))
                 }
