@@ -1,23 +1,8 @@
-import {useEffect,useState} from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { deleteTodo } from '../service/Reducer/todoReducer';
-import {addTodoAction,removeTodoAction} from './../service/actions/todoAction'
+const Todo = ({i,values}) => {
+    // Further destructuring the array
+    const {item,todos, setTodos} = values
 
-
-
-
-function Todo() {
-
-    const [todos , setTodos] = useState([]);
-    const [todo , setTodo] = useState('') 
-    const dispatch = useDispatch();
-    const createTodo = useSelector(s => s.createTodo)
-    
-    const addNewTodo = ()=> {
-        setTodos([...todos, {todo:todo , done:false}]);
-        setTodo('')
-    }
-    
+      // Checkes each todo if it is completed and sets Todos state to new array.
     const isChecked = (i)=> {
         let newArr = [...todos]
         if(newArr[i].done === false)
@@ -29,21 +14,11 @@ function Todo() {
     }
 
     return(
-        <>
-            <input placeholder='type here' value={todo} onChange={e=>setTodo(e.target.value)}/>
-            <button onClick={addNewTodo}>submit</button>
-            <div>
-                {
-                    todos?.map((item, i)=>(
-                        <div key={i}>
-                            <input type='checkbox' value={item.done} onChange={e=>isChecked(i)}/>
-                            <span className={item.done === true? 'deleted':''}>{item.todo}</span><span>+</span>
-                        </div>
-                    ))
-                }
+            <div key={i}>
+                <input type='checkbox' value={item.done} onChange={e=>isChecked(i)}/>
+                <span className={item.done === true? 'deleted':''}>{item.todo}</span><span>+</span>
             </div>
-
-        </>
-    );
+    )
 }
-export default Todo;
+
+export default Todo

@@ -1,4 +1,4 @@
-import Todo from './components/Todo'
+import Todos from './components/Todos'
 import {useEffect,useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {addTodo,removeTodo} from './service/actions/todoAction'
@@ -6,7 +6,7 @@ import {addTodo,removeTodo} from './service/actions/todoAction'
 function App() {
   return (
     <div className="App">     
-      <Todo/>
+      <Todos/>
     </div>
   );
 }
